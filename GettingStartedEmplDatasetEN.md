@@ -28,7 +28,7 @@ This dataset contains information on employers: Basic information and statistics
 **SNI+location to organization numbers**  
 **Columns**: [SNI_group, location, location_code, [organization numbers], [indexes]]  
 **Download**  
-[json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_occ.parquet)
+[json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni.parquet)
 
 Code Example
 
