@@ -8,12 +8,12 @@ This dataset contains information on employers: Basic information and statistics
 ### Table employers
   
 **Structure**  
-|          | organization_number | name | adress | city | municipality | municipality_code | county | county_code | (est_size) | est_top_occupations | est_competencies_traits | est_growth | est_seasonal |
-|---------:|-------:|-------:|-------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|
-| Example  |2021002114|Arbetsförmedlingen|  | Solna | Solna kommun | | Stockholms län | |  | [ ['6653', 0.3], ['', 0.2] ] | { '6653': {'competencies': ['Högskoleutbildning',...] } } | { 'months_12': 8.0, 'months_12_std': 7.6 }| {'recruitment': {'jan': 0.1, 'feb': ... }}        |  
+|          | organization_number | name | adress | city | municipality | municipality_code | county | county_code | (est_size) | history_nr_ads | est_top_occupations | est_competencies_traits | est_growth | est_seasonal |
+|---------:|-------:|-------:|-------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|
+| Example  |2021002114|Arbetsförmedlingen|  | Solna | Solna kommun | | Stockholms län | | |  | [ ['6653', 0.3], ['', 0.2] ] | { '6653': {'competencies': ['Högskoleutbildning',...] } } | { 'months_12': 8.0, 'months_12_std': 7.6 }| {'recruitment': {'jan': 0.1, 'feb': ... }}        |  
 
 **Dimensions**  
-~96k (employers) x 13
+~96k (employers) x 14
 
 **Download**  
 [json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers.parquet)
