@@ -1,37 +1,76 @@
-(under construction)
+(Under construction. Data last updated: 2021-12-15)
 
-## Employer Dataset Getting Started
+# Employer Dataset Getting Started
 
-### Description
-This dataset contains information on employers: Basic information and statistics of relevance to job matching applications.
+This dataset contains information on 9X 000 Swedish employers which can be of relevance for job matching applications.  
+For each employer, it contains name and location information, recruitment statistics and estimated workforce growth.  
 
-### Table employers
+The dataset can be extended with more information, see [below](#extend).
+ 
+
+## Downloads
+**Table Employers**  
+Download: [json](https://minio.arbetsformedlingen.se/historiska-annonser/X.zip)  [csv](https://minio.arbetsformedlingen.se/historiska-annonser/X_csv.zip)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/X3.parquet)  
+Description: Main file with information for 9X 000 employers. Table structure where each row represent one employer.<sup>1</sup>.  
+Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
+
+**Collections**  
+Download: [json](https://minio.arbetsformedlingen.se/collections.zip) [csv](https://minio.arbetsformedlingen.se/collections_csv.zip) [parquet](https://minio.arbetsformedlingen.se/collections.parquet)  
+Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used as easy access for subsets of employers.  
+Details: [Notebook Example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
+
+## Examples
+Notebook example: [Load data](https://)  
+Notebook example: Similarity  
+Application example: [Jobbometern](https://test-functions-36r.pages.dev/), [src](https://)  
+
+## Structure
+**Table Employers**
+
+| Column |  Example | Description |
+|:-|:-|:-| 
+| organization_number |55053 | 
+| name | Arbetsförmedlingen | 
+| adress | Solnavägen 1|  Only main workplace adress
+| city  | Solna |
+| municipality  | Solna |
+| municipality_code  
+| county | Stockholm |
+| county_code | 01 |
+| size_class | { '9', '20 000-50 000'} | Estimated size of employer<sup>4</sup>
+| nr_ads_pb | 5205 | Available ads from Platsbanken (pb) from the [historical ads](https://jobtechdev.se/en/products/historical-jobs) dataset
+| nr_ads_extern | 0 | Available external ads not published on Platsbanken from [joblinks](https://jobtechdev.se/en/products/ekosystem_foer_annonser)
+| est_top_occupations_pb | | Estimated top occupations encoded as [occupation-names](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb
+| est_top_ssyk4_pb | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb ads
+| est_top_ssyk4_extern | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from external ads
+| est_competencies_traits_pb | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from pb ads
+| est_competencies_traits_extern | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from external ads
+| est_seasonal | {'hiring': {'jan':0.1,...}, 'staffing': { 'jan': 0.1, ...} | Estimated hiring and staffing (i.e. histograms over months) from pb ads ('hiring') and workforce taxes paid ('staffing')
+| est_workforce_growth | | Estimated growth: previous year ('slope_last_year'), time series prediction 1-month '1-month', 3-month and 12-month
+
   
-**Structure**  
-|          | organization_number | name | adress | city | municipality | municipality_code | county | county_code | (est_size) | history_nr_ads | est_top_occupations | est_competencies_traits | est_growth | est_seasonal |
-|---------:|-------:|-------:|-------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|
-| Example  |2021002114|Arbetsförmedlingen|  | Solna | Solna kommun | | Stockholms län | | |  | [ ['6653', 0.3], ['', 0.2] ] | { '6653': {'competencies': ['Högskoleutbildning',...] } } | { 'months_12': 8.0, 'months_12_std': 7.6 }| {'recruitment': {'jan': 0.1, 'feb': ... }}        |  
 
-**Dimensions**  
-~96k (employers) x 14
+**Collections**
 
-**Download**  
-[json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/table_employers.parquet)
+| Column | Example | Description |
+|:-|:-|:-|
+| type | |
+| code | |
+| concept | |
+| organization_numbers| |
+| indices | 
 
-[**Code Example**](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing)  
+
+## Extend
+Description  
+Example, src
   
-### Collections
 
-**Occupation+location to organization numbers**  
-**Columns**: [occupation, location, location_code, [organization numbers], [indexes]]  
-**Download**  
-[json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_occ_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_occ_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_occ.parquet)
 
-**SNI+location to organization numbers**  
-**Columns**: [SNI_group, location, location_code, [organization numbers], [indexes]]  
-**Download**  
-[json](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_json.zip) [csv](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni_csv.zip) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/loc_sni.parquet)
+## License
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
-Code Example
-
-### Aggregations
+## Details
+<sup>1</sup> Only either limited companies (Aktiebolag) or employers which have been active on Platsbanken. Small employers are excluded from the dataset.  
+<sup>2</sup> Name, organization number and address for main workplace.  
+<sup>3</sup> 
