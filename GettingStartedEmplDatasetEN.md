@@ -17,7 +17,7 @@ Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow
 **Collections**  
 Download: [json](https://minio.arbetsformedlingen.se/collections.zip) [csv](https://minio.arbetsformedlingen.se/collections_csv.zip) [parquet](https://minio.arbetsformedlingen.se/collections.parquet)  
 Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used as easy access for subsets of employers.  
-Details: [Notebook Example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
+Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
 
 ## Examples
 Notebook example: [Load data](https://)  
