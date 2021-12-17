@@ -10,12 +10,12 @@ The dataset can be extended with more information, see [below](#extend).
 
 ## Downloads
 **Table Employers**  
-Download: [json](https://minio.arbetsformedlingen.se/historiska-annonser/X.zip)  [csv](https://minio.arbetsformedlingen.se/historiska-annonser/X_csv.zip)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer/X3.parquet)  
+Download: [json](X)  [csv](X)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/table_employer.parquet)  
 Description: Main file with information for 9X 000 employers. Table structure where each row represent one employer.<sup>1</sup>.  
 Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
 
 **Collections**  
-Download: [json](https://minio.arbetsformedlingen.se/collections.zip) [csv](https://minio.arbetsformedlingen.se/collections_csv.zip) [parquet](https://minio.arbetsformedlingen.se/collections.parquet)  
+Download: [json](X) [csv](X) [parquet](https://minio.arbetsformedlingen.se/employer_2/collections.parquet)  
 Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used as easy access for subsets of employers.  
 Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
 
@@ -31,22 +31,22 @@ Application example: [Jobbometern](https://test-functions-36r.pages.dev/), [src]
 |:-|:-|:-| 
 | organization_number |55053 | 
 | name | Arbetsförmedlingen | 
-| adress | Solnavägen 1|  Only main workplace adress
+| adress | Solnavägen 1|  Main workplace adress
 | city  | Solna |
 | municipality  | Solna |
 | municipality_code  
 | county | Stockholm |
 | county_code | 01 |
 | size_class | { '9', '20 000-50 000'} | Estimated size of employer<sup>4</sup>
-| nr_ads_pb | 5205 | Available ads from Platsbanken (pb) from the [historical ads](https://jobtechdev.se/en/products/historical-jobs) dataset
-| nr_ads_extern | 0 | Available external ads not published on Platsbanken from [joblinks](https://jobtechdev.se/en/products/ekosystem_foer_annonser)
-| est_top_occupations_pb | | Estimated top occupations encoded as [occupation-names](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb
-| est_top_ssyk4_pb | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb ads
-| est_top_ssyk4_extern | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from external ads
-| est_competencies_traits_pb | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from pb ads
-| est_competencies_traits_extern | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from external ads
+| nr_ads_pb | 5205 | Available ads from Platsbanken (pb) from the [historical ads](https://jobtechdev.se/en/products/historical-jobs) dataset.
+| nr_ads_extern | 0 | Available external ads not published on Platsbanken from the [joblinks](https://jobtechdev.se/en/products/ekosystem_foer_annonser) dataset.
+| est_top_occupations_pb | | Estimated top occupations encoded as [occupation-names](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb.
+| est_top_ssyk4_pb | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb ads.
+| est_top_ssyk4_extern | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from external ads.
+| est_competencies_traits_pb | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from pb ads.
+| est_competencies_traits_extern | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from external ads.
 | est_seasonal | {'hiring': {'jan':0.1,...}, 'staffing': { 'jan': 0.1, ...} | Estimated hiring and staffing (i.e. histograms over months) from pb ads ('hiring') and workforce taxes paid ('staffing')
-| est_workforce_growth | | Estimated growth: previous year ('slope_last_year'), time series prediction 1-month '1-month', 3-month and 12-month
+| est_workforce_growth | | Estimated workforce growth: Previous year ('slope_last_year'), time series prediction 1-month '1-month', 3-month and 12-month
 
   
 
