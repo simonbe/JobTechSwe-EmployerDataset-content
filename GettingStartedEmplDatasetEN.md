@@ -10,12 +10,12 @@ The dataset can be extended with more information, see [below](#extend).
 
 ## Downloads
 **Table Employers**  
-Download: [json](X)  [csv](X)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/table_employer.parquet)  
+Download: [json](X)  [csv](X)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/table_employers.parquet)  
 Description: Main file with information for 9X 000 employers. Table structure where each row represent one employer.<sup>1</sup>.  
 Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
 
 **Collections**  
-Download: [json](X) [csv](X) [parquet](https://minio.arbetsformedlingen.se/employer_2/collections.parquet)  
+Download: [json](X) [csv](X) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/collections.parquet)  
 Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used as easy access for subsets of employers.  
 Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
 
