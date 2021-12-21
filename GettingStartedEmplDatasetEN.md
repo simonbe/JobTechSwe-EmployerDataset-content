@@ -1,76 +1,78 @@
-(Under construction. Data last updated: 2021-12-15)
+(This dataset is in a beta stage - structure, naming and included data may change)  
+Data last updated: 2021-12-15
+<br><br>
 
 # Employer Dataset Getting Started
 
-This dataset contains information on 9X 000 Swedish employers which can be of relevance for job matching applications.  
+This dataset contains information on ~95 000 Swedish employers<sup>1</sup> which can be of relevance for job matching applications.  
 For each employer, it contains name and location information, recruitment statistics and estimated workforce growth.  
 
-The dataset can be extended with more information, see [below](#extend).
- 
+This dataset can be extended with more information, see [below](#extend).
+<br><br>
 
 ## Downloads
 **Table Employers**  
-Download: [json](X)  [csv](X)  [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/table_employers.parquet)  
-Description: Main file with information for 9X 000 employers. Table structure where each row represent one employer.<sup>1</sup>.  
-Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
+Download: [json](https://employer.blob.core.windows.net/data/table_employers.json.zip)  [csv](https://employer.blob.core.windows.net/data/table_employers.csv.zip)  [parquet](https://employer.blob.core.windows.net/data/table_employers.parquet)  
+Description: Tabular structure of dimensions 16 columns x ~95 000 rows. Each row represents one employer and each column field may contain one or many data points.  
+Details: [Structure](#structure), [notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing)
 
 **Collections**  
-Download: [json](X) [csv](X) [parquet](https://minio.arbetsformedlingen.se/historiska-annonser/employer_2/collections.parquet)  
-Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used as easy access for subsets of employers.  
-Details: [Notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing), [file structure](#structure)
-
+Download: [json](https://employer.blob.core.windows.net/data/collections.json.zip) [csv](https://employer.blob.core.windows.net/data/collections.csv.zip) [parquet](https://employer.blob.core.windows.net/data/collections.parquet)  
+Description: Collections of organizational numbers for location, industry, estimated occupations, competencies and traits. Can be used to fetch relevant subsets of employers.  
+Details: [Structure](#structure), [notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing)
+<br><br>
 ## Examples
-Notebook example: [Load data](https://)  
-Notebook example: Similarity  
-Application example: [Jobbometern](https://test-functions-36r.pages.dev/), [src](https://)  
+Application example: [Jobbometern](https://test-functions-36r.pages.dev/) (<u>src</u>)
+
+Notebook examples: [Load data](https://), (additional example in preparation)
+<br><br><br>
 
 ## Structure
-**Table Employers**
+
+### Table Employers
+
 
 | Column |  Example | Description |
 |:-|:-|:-| 
 | organization_number |55053 | 
 | name | Arbetsförmedlingen | 
-| adress | Solnavägen 1|  Main workplace adress
+| adress | Solnavägen 1|  Main workplace adress.
 | city  | Solna |
 | municipality  | Solna |
 | municipality_code  
 | county | Stockholm |
 | county_code | 01 |
-| size_class | { '9', '20 000-50 000'} | Estimated size of employer<sup>4</sup>
-| nr_ads_pb | 5205 | Available ads from Platsbanken (pb) from the [historical ads](https://jobtechdev.se/en/products/historical-jobs) dataset.
-| nr_ads_extern | 0 | Available external ads not published on Platsbanken from the [joblinks](https://jobtechdev.se/en/products/ekosystem_foer_annonser) dataset.
-| est_top_occupations_pb | | Estimated top occupations encoded as [occupation-names](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb.
-| est_top_ssyk4_pb | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from pb ads.
-| est_top_ssyk4_extern | | Estimated top occupations encoded as [SSYK4](https://jobtechdev.se/en/products/jobtech-taxonomy) from external ads.
-| est_competencies_traits_pb | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from pb ads.
-| est_competencies_traits_extern | | Estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) from external ads.
-| est_seasonal | {'hiring': {'jan':0.1,...}, 'staffing': { 'jan': 0.1, ...} | Estimated hiring and staffing (i.e. histograms over months) from pb ads ('hiring') and workforce taxes paid ('staffing')
-| est_workforce_growth | | Estimated workforce growth: Previous year ('slope_last_year'), time series prediction 1-month '1-month', 3-month and 12-month
+| <br>size<br><br>[subcolumns:<br>est_class, term]| { 'est_class': 9, <br> 'term': '20 000-50 000'} | Estimated size of employer<sup>2</sup>
+| <br>nr_ads<br><br>[subcolumns:<br>pb, other]| {'pb': 5205, 'other': 43 } | Nr ads from Platsbanken/[historical ads](https://jobtechdev.se/en/products/historical-jobs) dataset ('pb' dataset) and from the [joblinks](https://jobtechdev.se/en/products/ekosystem_foer_annonser) dataset ('other') which below fields use (est_top_occupations, est_top_occupations_ssyk, est_competencies_traits, est_competencies_traits_ssyk).
+| est_top_occupations | [ { 'term': 'Arbetsförmedlare', 'concept': '', 'code': '', 'probability': 0 } | Top occupations (max 20) for employer from the pb dataset encoded as [occupation-names](https://jobtechdev.se/en/products/jobtech-taxonomy).
+| <br>est_top_occupations_ssyk<br><br>[subcolumns:<br>pb, other] | {'pb': [ { 'term': 'Arbetsförmedlare', 'concept': '', 'code': '', 'probability': 0 }, {...}]| Top occupations (max 20) encoded as [SSYK](https://jobtechdev.se/en/products/jobtech-taxonomy) from the pb dataset ('pb') and estimated SSYK from the joblinks dataset ('other').
+| est_competencies_traits | | Corresponding estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) for each occupation from the pb dataset.
+| <br>est_competencies_traits_ssyk<br><br>[subcolumns:<br>pb, other] | | Corresponding estimated competencies and traits [enriched](https://jobtechdev.se/en/products/jobad-enrichments) for each occupation encoded as SSYK.
+| <br>est_seasonal | {'hiring': {'jan':0.1,...}, 'staffing': { 'jan': 0.1, ...} | Estimated hiring and staffing per month from the pb dataset ('hiring') and the workforce taxes paid by the employer ('staffing')
+| <br>est_workforce_growth<br><br>[subcolumns:<br>est_last_12_months,est_1_months,<br>est_3_months, est_12_months,<br>est_growth_class,est_growth_class_term]  | | Estimated workforce growth<sup>3</sup>: Growth during previous year [%] ('slope_last_12-month'), and time-series predicted growth coming 1-month ('pred_months_1'), 3-months ('pred_months_3') and 12-months ('pred_months_12') periods.
 
-  
+<br>
 
-**Collections**
+### Collections
 
 | Column | Example | Description |
 |:-|:-|:-|
-| type | |
-| code | |
-| concept | |
-| organization_numbers| |
-| indices | 
+| type | "ssyk" | location ("country", "region", "municipality","city"), occupation ("occupation-name", "ssyk"), industry group ("industry group"), competencies ("competence") or traits ("trait")
+| code | "2314" | When relevant, e.g. ssyk code or municipality code
+| concept | "Xr_zTY_4f" | Corresponding concept from jobtech taxonomy
+| organization_numbers| [5500001, 5500002, ...] | List of relevant organization numbers.
+| indices | [4323, 16, 82001,...] | List of corresponding indices for employers in table employers.
 
 
 ## Extend
-Description  
-Example, src
-  
 
+This dataset can be extended with additional employer information of relevance for job matching. Please contact us for more information.  
+(Example: <u>Track nr new firms started in Sweden</u> (src)). 
 
 ## License
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
-## Details
-<sup>1</sup> Only either limited companies (Aktiebolag) or employers which have been active on Platsbanken. Small employers are excluded from the dataset.  
-<sup>2</sup> Name, organization number and address for main workplace.  
-<sup>3</sup> 
+<br><br>
+<sup>1</sup> Included are limited companies ('aktiebolag') or employers which are not limited companies but have published ads on Platsbanken. Small employers are excluded from the dataset.  
+<sup>2</sup> Size class.  
+<sup>3</sup> Based <u>only</u> on total payroll taxes paid ('arbetsgivaravgifter').
