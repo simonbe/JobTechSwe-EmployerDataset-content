@@ -1,5 +1,5 @@
 (This dataset is in a beta stage - structure and data may change)  
-Data last updated: 2022-02-02
+Data last updated: 2022-04-22
 <br><br>
 
 # Employer Dataset Getting Started
@@ -7,8 +7,7 @@ Data last updated: 2022-02-02
 This dataset contains information on ~95 000 Swedish employers<sup>1</sup> which can be of relevance for job matching applications.  
 For each employer, it contains name and location information, recruitment statistics and estimated workforce growth.  
 
-This dataset can be extended with more information, see [below](#extend).
-<br><br>
+<br>
 
 ## Downloads
 **Table Employers**  
@@ -22,8 +21,9 @@ Description: Collections of organizational numbers for locations, occupations, c
 Details: [Structure](#collections), [notebook example](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing)
 <br><br>
 ## Examples
-Application example: [Jobbometern](https://test-functions-36r.pages.dev/) (<u>src</u>)  
-Notebook examples: [Load data](https://), (additional example in preparation)
+[Load data and show information](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing) (Python)  
+[Load data and plot a chart](https://observablehq.com/d/b42e1161355bfa80) (Javascript/Observablehq)  
+[Jobbometern](https://jmt.pages.dev/) (Application)  
 <br><br><br>
 
 ## Structure
@@ -63,11 +63,6 @@ Notebook examples: [Load data](https://), (additional example in preparation)
 | organization_numbers| [5500001, 5500002, ...] | List of relevant organization numbers.
 | indices | [4323, 16, 82001,...] | List of corresponding indices for employers in table employers.
 
-
-## Extend
-
-This dataset can be extended with additional employer information of relevance for job matching. Please contact us for more information.  
-(Example: [Track number of new companies started](#)) 
 
 ## License
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
