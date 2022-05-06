@@ -22,7 +22,7 @@ Details: [Structure](#collections), [notebook example](https://colab.research.go
 <br><br>
 ## Examples
 [Load data and show information](https://colab.research.google.com/drive/1x_Wxtn3V8ow3axOb6N9dZidV9bPbStF4?usp=sharing) (Python)  
-[Load data and plot a chart](https://observablehq.com/d/b42e1161355bfa80) (Javascript/Observablehq)  
+[Load data and plot a chart](https://observablehq.com/@simonbe/example-load-and-show-employer-data) (Javascript/Observablehq)  
 [Jobbometern](https://jmt.pages.dev/) (Application)  
 <br><br><br>
 
